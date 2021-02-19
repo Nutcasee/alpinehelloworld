@@ -86,6 +86,7 @@ jobs:
 
 
       #     docker login --username=_ --password $HEROKU_API_KEY $HEROKU_REGISTRY_URL
+      # heroku git:remote -a alpinehelloworld-3-2-part3
       - name: push to heroku
         env : 
             HEROKU_REGISTRY_URL: registry.heroku.com
@@ -94,7 +95,7 @@ jobs:
             docker login --username=_ --password $HEROKU_API_KEY $HEROKU_REGISTRY_URL
             export HEROKU_API_KEY=$HEROKU_API_KEY
             heroku container:login
-            heroku git:remote -a alpinehelloworld-3-2-part3
+            
             
             heroku stack:set container
             
