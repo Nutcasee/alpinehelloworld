@@ -70,8 +70,8 @@ jobs:
       #     # Delay between retries
       #     retry-delay: 5s # Optional, only applicable to max-attempts > 1
 
-      # - name: Checkout
-      #   uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
       # - name: Build, Push and Deploy to Heroku #set the whatever name you want to this step
       #   id: heroku
