@@ -88,6 +88,10 @@ jobs:
       #     docker login --username=_ --password $HEROKU_API_KEY $HEROKU_REGISTRY_URL
       # heroku git:remote -a alpinehelloworld-3-2-part3
       # heroku stack:set container
+      # heroku container:push web --app alpinehelloworld-3-2-part3
+      #       heroku container:release web --app alpinehelloworld-3-2-part3
+      #       heroku ps:scale web=1 --app alpinehelloworld-3-2-part3
+
       - name: push to heroku
         env : 
             HEROKU_REGISTRY_URL: registry.heroku.com
@@ -97,12 +101,11 @@ jobs:
             export HEROKU_API_KEY=$HEROKU_API_KEY
             heroku container:login
             
+            heroku stack:set container
             
-            
-            heroku container:push web --app alpinehelloworld-3-2-part3
-            heroku container:release web --app alpinehelloworld-3-2-part3
-            heroku ps:scale web=1 --app alpinehelloworld-3-2-part3
+            git push heroku master
 
+            
 
       # - uses: actions/checkout@v2
       # - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action
