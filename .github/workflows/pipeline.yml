@@ -102,7 +102,9 @@ jobs:
             heroku container:login
 
             docker build -t alpinehelloworld-3-2-part3 .  
-            docker image push registry.heroku.com/alpinehelloworld-3-2-part3:latest/web            
+
+            docker tag alpinehelloworld-3-2-part3 registry.heroku.com/alpinehelloworld-3-2-part3/web
+            docker push registry.heroku.com/alpinehelloworld-3-2-part3/web            
              
             heroku container:release web --app alpinehelloworld-3-2-part3
             heroku ps:scale web=1 --app alpinehelloworld-3-2-part3
