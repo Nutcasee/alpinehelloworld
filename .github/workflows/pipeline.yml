@@ -93,6 +93,7 @@ jobs:
           heroku_email: "tranluc2007@gmail.com"
           # healthcheck: https://your-own-pipeline-bloglist.herokuapp.com/health
           # checkstring: ok
+          # dontuseforce: 
           rollbackonhealthcheckfailed: true
       
       # - name: Bump version and push tag
