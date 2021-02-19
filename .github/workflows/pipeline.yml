@@ -101,9 +101,10 @@ jobs:
             export HEROKU_API_KEY=$HEROKU_API_KEY
             heroku container:login
             
-            heroku stack:set container
+            heroku container:push -a alpinehelloworld-3-2-part3 web
+            heroku container:release web --app alpinehelloworld-3-2-part3
+            heroku ps:scale web=1 --app alpinehelloworld-3-2-part3
             
-            git push heroku master
 
             
 
