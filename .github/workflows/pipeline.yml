@@ -97,13 +97,12 @@ jobs:
             HEROKU_REGISTRY_URL: registry.heroku.com
             HEROKU_API_KEY : ${{ secrets.HEROKU_API_KEY }}
         run : |
-            docker login --username=_ --password $HEROKU_API_KEY $HEROKU_REGISTRY_URL
+            docker login --username=nutcasee --password $HEROKU_API_KEY $HEROKU_REGISTRY_URL
             export HEROKU_API_KEY=$HEROKU_API_KEY
             heroku container:login
-            
-            heroku git:remote -a alpinehelloworld-3-2-part3
-            
-            heroku container:push -a alpinehelloworld-3-2-part3 web
+
+            docker push registry.heroku.com/alpinehelloworld-3-2-part3/web
+
             heroku container:release web --app alpinehelloworld-3-2-part3
             heroku ps:scale web=1 --app alpinehelloworld-3-2-part3
             
